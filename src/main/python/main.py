@@ -250,7 +250,7 @@ class Ui_EmailSplitter(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(EmailSplitter)
 
-        # Connect
+        # Connecting
         self.sourceButton.clicked.connect(self.openFileNameDialog)
         self.destButton.clicked.connect(self.saveFileDialog)
         self.splitButton.clicked.connect(self.splitEmails)
@@ -258,7 +258,6 @@ class Ui_EmailSplitter(object):
         self.creditsLabel.clicked.connect(self.Open_url1)
         self.selectType.setItemText(0, "txt")
         self.selectType.activated.connect(self.selectedType)
-        #########self.emailBrowser.textChanged.connect(self.text_change)
         self.emailNumber.textChanged['QString'].connect(self.selectedNR)
 
 
@@ -300,22 +299,7 @@ class Ui_EmailSplitter(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.License), _translate("EmailSplitter", "License"))
 
 
-#### Core Functions ####
-    
-    '''### Checking for input into email browser
-    def text_change(self):
-        global pasteList
-        pasteList = list([self.emailBrowser.toPlainText()])
-        self.statusUpdate.setText("Select Directory")
-        self.statusUpdate.setStyleSheet("color: rgb(255, 255, 255);background-color: rgb(14,42,0);qproperty-alignment: 'AlignCenter';")
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.statusUpdate.setFont(font)
-        self.filePath.setText("List pasted in")
-        self.filePath.setStyleSheet("color: rgb(255, 255, 255);background-color: rgb(34,102,0);qproperty-alignment: 'AlignCenter';")
-
-        print(pasteList)
-    '''  
+#### Core Functions ####  
 
     ### Open dialog and reading file
     def openFileNameDialog(self):
