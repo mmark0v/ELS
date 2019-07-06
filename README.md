@@ -1,7 +1,5 @@
-<p><a href="#installation"><img alt="python" src="https://img.shields.io/static/v1.svg?label=&message=Installing&color=blue"></a> <a href="https://www.python.org/"><img alt="python" src="https://img.shields.io/static/v1.svg?label=&message=Installing&color=blue"></a></p>
-
 <p align="center">
-  <img alt="ELS" src="src/main/icons/linux/128.png" height="140" />
+  <img alt="ELS" src="src/main/icons/linux/128.png" height="100" />
   <p align="center">
     <a href="https://www.python.org/"><img alt="python" src="https://img.shields.io/badge/python-3.7%2B-blue.svg"></a>
     <a href="LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square"></a>
@@ -20,7 +18,13 @@ Use this tool to split lists, in example to import contacts in popular email rel
   <img src="Screenshots/els-gif.gif" alt="How to GIF">
 </p>
 
-
+<p>
+  <a href="#installation"><img alt="installation" src="https://img.shields.io/static/v1.svg?label=&message=Installation&color=blue"></a>
+  <a href="#portable"><img alt="portable" src="https://img.shields.io/static/v1.svg?label=&message=Portable&color=blue"></a>
+  <a href="#howto"><img alt="howto" src="https://img.shields.io/static/v1.svg?label=&message=How%To&color=blue"></a>
+  <a href="#build"><img alt="build" src="https://img.shields.io/static/v1.svg?label=&message=Build&color=blue"></a>
+  <a href="#contributing"><img alt="contributing" src="https://img.shields.io/static/v1.svg?label=&message=Contributing&color=blue"></a>
+  <a href="#authors"><img alt="authors" src="https://img.shields.io/static/v1.svg?label=&message=Authors&color=blue"></a>
 
 ## Prerequisites
 
@@ -33,7 +37,7 @@ Installers currently are available for Windows and Ubuntu users.
 <br/>
 <a name="installation"></a> 
 
-## installation
+## Installation
 If you want to install the tool please follow the below instructions.
 
 ```
@@ -49,16 +53,16 @@ If you want to install the tool please follow the below instructions.
 ```
 
 <br/>
-<br/>
+<a name="portable"></a>
 
-### Portable version
+## Portable version
 If you want to try the tool without installing it, just download and unzip the file.
 
   - [Windows](Portables/Windows_Portable/ELS-Windows.zip)
   - [Ubuntu](Portables/Linux_Portable/ELS-ubuntu.zip)
 
 <br/>
-<br/>
+<a name="howto"></a>
 
 ## How To
 
@@ -82,7 +86,7 @@ NOTE: If no selection is made, the default options are 2000 emails per list and 
 #### 4. Click Split Now button
 
 <br/>
-<br/>
+<a name="build"></a>
 
 ## Built With
 
@@ -91,21 +95,21 @@ NOTE: If no selection is made, the default options are 2000 emails per list and 
 * [NSIS](https://nsis.sourceforge.io/Main_Page) - Used to generate Windows installer
 
 <br/>
-<br/>
+<a name="contributing"></a>
 
 ## Contributing
 
 Please read [CONTRIBUTING.md](https://github.com/mmark0v/ELS) for details on our code of conduct, and the process for submitting pull requests to us.
 
 <br/>
-<br/>
+<a name="authors"></a>
 
 ## Authors
 
 * **Malin Markov** - *Initial work* - [mmark0v](https://github.com/mmark0v/)
 
 <br/>
-<br/>
+
 
 ## License
 
