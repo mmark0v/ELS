@@ -1,11 +1,9 @@
 #!/bin/bash
 user="mmark0v"
-pass="Ivan4ovapolqna"
+pass=""
 repo="https://github.com/mmark0v/ELS"
-
+git config --global credential.helper "cache --timeout 7200"
 git pull $repo
 git add .
-git commit -m "$1"
+git commit -m "Directory Update"
 git push origin master
-$user
-$pass
