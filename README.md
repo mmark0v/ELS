@@ -1,3 +1,16 @@
+<p><a href="#installation"><img alt="python" src="https://img.shields.io/static/v1.svg?label=&message=Installing&color=blue"></a> <a href="https://www.python.org/"><img alt="python" src="https://img.shields.io/static/v1.svg?label=&message=Installing&color=blue"></a></p>
+
+<p align="center">
+  <img alt="ELS" src="src/main/icons/linux/128.png" height="140" />
+  <p align="center">
+    <a href="https://www.python.org/"><img alt="python" src="https://img.shields.io/badge/python-3.7%2B-blue.svg"></a>
+    <a href="LICENSE"><img alt="LICENSE" src="https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square"></a>
+    <a href="CHANGELOG.md"><img alt="Release" src="https://img.shields.io/badge/version-1.1-red.svg"></a>
+    <a href="https://github.com/mherrmann/fbs"><img alt="Demo" src="https://img.shields.io/badge/freeze-FBS-brown.svg"></a>
+  </p>
+</p>
+
+
 # ELS - Email List Splitter
 This tool splits big email lists into custom smaller lists.
 
@@ -7,9 +20,7 @@ Use this tool to split lists, in example to import contacts in popular email rel
   <img src="Screenshots/els-gif.gif" alt="How to GIF">
 </p>
 
-<br/>
-<br/>
-<br/>
+
 
 ## Prerequisites
 
@@ -20,8 +31,9 @@ Installers currently are available for Windows and Ubuntu users.
 ---
 
 <br/>
+<a name="installation"></a> 
 
-## Installing
+## installation
 If you want to install the tool please follow the below instructions.
 
 ```
