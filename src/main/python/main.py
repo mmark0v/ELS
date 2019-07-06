@@ -300,7 +300,7 @@ class Ui_EmailSplitter(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.License), _translate("EmailSplitter", "License"))
 
 
-####  Finctions ####
+#### Core Functions ####
     
     '''### Checking for input into email browser
     def text_change(self):
@@ -387,8 +387,6 @@ class Ui_EmailSplitter(object):
 
         print(f"Update: Directory selected\n({saveFile})")
 
-
-        # Filetype select event 
     
     ### Store the output file type value
     def selectedType(self):
@@ -480,10 +478,10 @@ class Ui_EmailSplitter(object):
         webbrowser.open('https://github.com/mmark0v')
 
 
-#### End Finctions ####
+#### End Core Functions ####
 
 
-#### Runing main function ####
+#### Execute main function ####
 def main():
     import sys
     app = QtWidgets.QApplication(sys.argv)
