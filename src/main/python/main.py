@@ -251,7 +251,6 @@ class Ui_EmailSplitter(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(EmailSplitter)
 
-
         self.sourceButton.clicked.connect(self.openFileNameDialog)
         self.destButton.clicked.connect(self.saveFileDialog)
         self.splitButton.clicked.connect(self.splitEmails)
@@ -310,8 +309,7 @@ class Ui_EmailSplitter(object):
         global openFile
         global saveFile
         openFile, _ = QFileDialog.getOpenFileName(None, "Open File", "", filter, options=options)
-        
-        
+            
         if openFile:
             filenames = openFile
                         
@@ -368,9 +366,7 @@ class Ui_EmailSplitter(object):
             font.setPointSize(11)
             self.statusUpdate.setFont(font)
 
-
         print(f"Update: Directory selected: {saveFile}")
-
     
     ### Store the output file type value
     def selectedType(self):
@@ -383,7 +379,6 @@ class Ui_EmailSplitter(object):
         global number    
         try: number = int(self.emailNumber.text())
         except ValueError: number = 2000
-
     
     def splitEmails(self):
         global saveFile
@@ -401,8 +396,7 @@ class Ui_EmailSplitter(object):
 
             try: number
             except NameError: number = "2000" 
-            
-        
+              
             fileType = str(self.selectType.currentText()) # get filetype value variable
             if number is None:
                 number = 2000
@@ -421,8 +415,7 @@ class Ui_EmailSplitter(object):
                 fin = number
                 blk = int(1)
                 mode = "w" 
-
-                
+              
                 for i in range(0, loop):
                     new_list = open(f'{dest}/E-list-{blk}.{fileType}', f"{mode}")
                     new_file = new_list.writelines(email_list[start:fin])
@@ -461,7 +454,6 @@ class Ui_EmailSplitter(object):
         import webbrowser 
         webbrowser.open('https://github.com/mmark0v')
         print("Credits link opened")
-
 
 #### End Core Functions ####
 
