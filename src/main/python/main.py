@@ -17,15 +17,17 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtCore import *
 from PyQt5.QtGui import * 
+from pathlib import Path
 
 
 class Ui_EmailSplitter(object):
     def setupUi(self, EmailSplitter):
+        path = Path("src/main/icons")
         EmailSplitter.setObjectName("EmailSplitter")
         EmailSplitter.setFixedSize(670, 594)
         EmailSplitter.setBaseSize(QtCore.QSize(0, 0))
         icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap("/home/malin/PycharmProjects/Splitter/venv/src/main/icons/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon.addPixmap(QtGui.QPixmap(f"{path}/Icon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         EmailSplitter.setWindowIcon(icon)
         EmailSplitter.setIconSize(QtCore.QSize(16, 16))
         EmailSplitter.setWindowOpacity(1.0)
@@ -42,7 +44,6 @@ class Ui_EmailSplitter(object):
         
         self.emailBrowser = QtWidgets.QLabel(self._top_left)
         self.emailBrowser.setGeometry(QtCore.QRect(10, 10, 291, 221))
-        ####self.emailBrowser.setPlaceholderText(f"SELECT SOURCE FILE OR PASTE YOUR LIST HERE")
         self.emailBrowser.setObjectName("emailBrowser")
         self.emailBrowser.setStyleSheet("color: rgb(85, 170, 255);background-color: rgb(36, 24, 34)")
         
@@ -57,7 +58,7 @@ class Ui_EmailSplitter(object):
         self.splitButton.setStyleSheet("color: rgb(239, 127, 0);\n"
 "background-color: rgb(57, 57, 57);")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/home/malin/PycharmProjects/Splitter/venv/src/main/icons/app-icons/splitter.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(f"{path}/app-icons/splitter.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.splitButton.setIcon(icon1)
         self.splitButton.setIconSize(QtCore.QSize(26, 26))
         self.splitButton.setObjectName("splitButton")
@@ -73,7 +74,7 @@ class Ui_EmailSplitter(object):
         self.resetButton.setStyleSheet("color: rgb(239, 239, 239);\n"
 "background-color: rgb(57, 57, 57);")
         icon1 = QtGui.QIcon()
-        icon1.addPixmap(QtGui.QPixmap("/home/malin/PycharmProjects/Splitter/venv/src/main/icons/app-icons/reset.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon1.addPixmap(QtGui.QPixmap(f"{path}/app-icons/reset.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.resetButton.setIcon(icon1)
         self.resetButton.setIconSize(QtCore.QSize(25, 25))
         self.resetButton.setObjectName("resetButton")
@@ -95,7 +96,7 @@ class Ui_EmailSplitter(object):
         self.sourceButton.setMouseTracking(False)
         self.sourceButton.setStyleSheet("color: rgb(239, 127, 0); background-color: rgb(57, 57, 57);")
         icon2 = QtGui.QIcon()
-        icon2.addPixmap(QtGui.QPixmap("/home/malin/PycharmProjects/Splitter/venv/src/main/icons/app-icons/source.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon2.addPixmap(QtGui.QPixmap(f"{path}/app-icons/source.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.sourceButton.setIcon(icon2)
         self.sourceButton.setIconSize(QtCore.QSize(25, 25))
         self.sourceButton.setObjectName("sourceButton")
@@ -110,7 +111,7 @@ class Ui_EmailSplitter(object):
         self.destButton.setFont(font)
         self.destButton.setStyleSheet("color: rgb(239, 127, 0); background-color: rgb(57, 57, 57);")
         icon3 = QtGui.QIcon()
-        icon3.addPixmap(QtGui.QPixmap("/home/malin/PycharmProjects/Splitter/venv/src/main/icons/app-icons/folder.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon3.addPixmap(QtGui.QPixmap(f"{path}/app-icons/folder.svg"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.destButton.setIcon(icon3)
         self.destButton.setIconSize(QtCore.QSize(25, 25))
         self.destButton.setObjectName("destButton")
@@ -250,7 +251,7 @@ class Ui_EmailSplitter(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(EmailSplitter)
 
-        # Connecting
+
         self.sourceButton.clicked.connect(self.openFileNameDialog)
         self.destButton.clicked.connect(self.saveFileDialog)
         self.splitButton.clicked.connect(self.splitEmails)
@@ -299,9 +300,9 @@ class Ui_EmailSplitter(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.License), _translate("EmailSplitter", "License"))
 
 
-#### Core Functions ####  
+####  Core Functions #### 
 
-    ### Open dialog and reading file
+    ### This is the dialog to read the source file
     def openFileNameDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
@@ -313,12 +314,11 @@ class Ui_EmailSplitter(object):
         
         if openFile:
             filenames = openFile
-            f = open(filenames, 'r')
-            
-            with f:
+                        
+            with open(filenames, 'r') as f:
                 data = f.read()
                 self.emailBrowser.setText(data)
-
+            
             self.filePath.setText(openFile)
             self.filePath.setStyleSheet("color: rgb(255, 255, 255);background-color: rgb(34,102,0);")
         
@@ -338,9 +338,9 @@ class Ui_EmailSplitter(object):
             font.setPointSize(11)
             self.statusUpdate.setFont(font)
 
-        print(f"Update: File selected\n({openFile})")
+        print(f"Update: File selected: {openFile}")
 
-    ### Open destination derectory dialog
+    ### Chosing the directory to save files
     def saveFileDialog(self):
         options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
@@ -369,7 +369,7 @@ class Ui_EmailSplitter(object):
             self.statusUpdate.setFont(font)
 
 
-        print(f"Update: Directory selected\n({saveFile})")
+        print(f"Update: Directory selected: {saveFile}")
 
     
     ### Store the output file type value
@@ -384,7 +384,7 @@ class Ui_EmailSplitter(object):
         try: number = int(self.emailNumber.text())
         except ValueError: number = 2000
 
-    ### Execution function
+    
     def splitEmails(self):
         global saveFile
         global openFile
@@ -402,33 +402,34 @@ class Ui_EmailSplitter(object):
             try: number
             except NameError: number = "2000" 
             
-            ### Select file type
+        
             fileType = str(self.selectType.currentText()) # get filetype value variable
             if number is None:
                 number = 2000
             if number == "2000":
                 number = 2000            
 
-            ### Working with files
-            source = open(openFile, "r")
+            
+            with open(openFile, "r") as f:
+                email_list = f.readlines()
+
             dest = saveFile
-            email_file = source
-            email_list = email_file.readlines()
             count = len(email_list)
-            if number <= count:  # check if the count of emails per list is bigger than the source list
+            if number <= count:  
                 loop = count // number
                 start = int(0)
                 fin = number
                 blk = int(1)
                 mode = "w" 
 
-                ## writing email list blocks
+                
                 for i in range(0, loop):
                     new_list = open(f'{dest}/E-list-{blk}.{fileType}', f"{mode}")
                     new_file = new_list.writelines(email_list[start:fin])
                     blk += 1
                     start += number
                     fin += number
+                    new_list.close()
 
                 if new_list:   # Check and updating if job has been completed
                     self.statusUpdate.setText(f"Job Completed, {loop} lists were created.")
@@ -448,24 +449,23 @@ class Ui_EmailSplitter(object):
             self.statusUpdate.setStyleSheet("color: rgb(255, 255, 255);background-color: rgb(117,0,28);qproperty-alignment: 'AlignCenter';")
             print(f"Error: Not really ready")
 
-    ### Restart application 
+     
     def resetApp(self):
+        print("Application: RESET")
         import sys
         import os
         python = sys.executable
         os.execl(python, python, * sys.argv)
-        print(restarting)
-
-    ### Open credits link
+        
     def Open_url1(self): 
         import webbrowser 
         webbrowser.open('https://github.com/mmark0v')
+        print("Credits link opened")
 
 
 #### End Core Functions ####
 
 
-#### Execute main function ####
 def main():
     import sys
     app = QtWidgets.QApplication(sys.argv)
