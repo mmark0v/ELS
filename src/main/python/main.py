@@ -458,6 +458,7 @@ class Ui_EmailSplitter(object):
 #### End Core Functions ####
 
 
+
 def main():
     import sys
     app = QtWidgets.QApplication(sys.argv)
